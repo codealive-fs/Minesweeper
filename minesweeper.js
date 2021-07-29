@@ -37,6 +37,21 @@ export function createBoard(boardSize, numberOfMines) {
   return board;
 }
 
+export function markTile(tile) {
+  if (
+    tile.status !== TITLE_STATUSES.HIDDEN &&
+    tile.status !== TITLE_STATUSES.MARKED
+  ) {
+    return;
+  }
+
+  if (tile.status === TITLE_STATUSES.MARKED) {
+    tile.status = TITLE_STATUSES.HIDDEN;
+  } else {
+    tile.status = TITLE_STATUSES.MARKED;
+  }
+}
+
 function getMinePositons(boardSize, numberOfMines) {
   const positions = [];
 
